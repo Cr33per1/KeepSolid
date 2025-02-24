@@ -1,0 +1,78 @@
+<head>
+    <title>Культурна спадщина</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .filters {
+            margin-bottom: 20px;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            display: none;
+        }
+        h2 {
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Культурна спадщина</h1>
+
+    <div class="filters">
+        <label><input type="radio" name="country" class="filter" value="Україна"> 🇺🇦 Україна</label>
+        <label><input type="radio" name="country" class="filter" value="Німеччина"> 🇩🇪 Німеччина</label>
+        <label><input type="radio" name="country" class="filter" value="Франція"> 🇫🇷 Франція</label>
+        <label><input type="radio" name="country" class="filter" value="all" checked> 🌍 Усі</label>
+    </div>
+
+    <div class="section" data-country="Україна">
+        <h2>🇺🇦 Україна</h2>
+        <p><b>Софія Київська</b> — унікальна архітектурна пам’ятка XI століття.</p>
+        <p><b>Петриківський розпис</b> — мистецтво, включене до списку ЮНЕСКО.</p>
+    </div>
+
+    <div class="section" data-country="Німеччина">
+        <h2>🇩🇪 Німеччина</h2>
+        <p><b>Замок Нойшванштайн</b> — казковий замок, який надихнув Disney.</p>
+        <p><b>Берлінський мур</b> — історична пам’ятка поділу та возз’єднання Німеччини.</p>
+    </div>
+
+    <div class="section" data-country="Франція">
+        <h2>🇫🇷 Франція</h2>
+        <p><b>Ейфелева вежа</b> — символ Парижа та Франції.</p>
+        <p><b>Лувр</b> — один з найвідоміших музеїв у світі.</p>
+    </div>
+
+    <script>
+        document.querySelectorAll(".filter").forEach(radio => {
+            radio.addEventListener("change", filterSections);
+        });
+
+        function filterSections() {
+            let selectedCountry = document.querySelector(".filter:checked").value;
+            document.querySelectorAll(".section").forEach(section => {
+                if (selectedCountry === "all" || section.getAttribute("data-country") === selectedCountry) {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            });
+        }
+
+        filterSections();
+    </script>
+</body>
+</html>

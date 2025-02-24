@@ -1,0 +1,78 @@
+<head>
+    <title>Історичні події</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .filters {
+            margin-bottom: 20px;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+        h2 {
+            color: #ff5733;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Історичні події</h1>
+
+    <div class="filters">
+        <label><input type="checkbox" class="filter" value="Україна" checked> 🇺🇦 Україна</label>
+        <label><input type="checkbox" class="filter" value="Німеччина" checked> 🇩🇪 Німеччина</label>
+        <label><input type="checkbox" class="filter" value="Франція" checked> 🇫🇷 Франція</label>
+    </div>
+
+    <div class="section" data-country="Україна">
+        <h2>🇺🇦 Україна</h2>
+        <p><b>Проголошення незалежності (1991)</b> — Україна стала незалежною державою.</p>
+        <p><b>Козацька доба</b> — формування української нації та боротьба за свободу.</p>
+    </div>
+
+    <div class="section" data-country="Німеччина">
+        <h2>🇩🇪 Німеччина</h2>
+        <p><b>Падіння Берлінської стіни (1989)</b> — об’єднання Німеччини.</p>
+        <p><b>Реформація</b> — рух, ініційований Мартіном Лютером, що змінив хід історії.</p>
+    </div>
+
+    <div class="section" data-country="Франція">
+        <h2>🇫🇷 Франція</h2>
+        <p><b>Французька революція (1789-1799)</b> — падіння монархії, початок демократії.</p>
+        <p><b>Створення Європейського Союзу</b> — Франція була одним із ініціаторів.</p>
+    </div>
+
+    <script>
+        document.querySelectorAll(".filter").forEach(checkbox => {
+            checkbox.addEventListener("change", filterSections);
+        });
+
+        function filterSections() {
+            let selectedCountries = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value);
+            document.querySelectorAll(".section").forEach(section => {
+                let country = section.getAttribute("data-country");
+                if (selectedCountries.includes(country)) {
+                    section.classList.remove("hidden");
+                } else {
+                    section.classList.add("hidden");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<head>
+    <title>Меню</title>
+    <style>
+        body {
+            background:#6a85ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 28px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .menu a {
+            display: inline-block;
+            width: 220px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        .menu a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        .menu a:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <h2>ГОЛОВНЕ МЕНЮ</h2>
+    <div class="menu">
+        <a href="1.html" target="sait">Видатні особистості</a>
+        <a href="2.html" target="sait">Історичні події</a>
+        <a href="3.html" target="sait">Культурна спадщина</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<head>
+    <title>Видатні особистості</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #search {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Видатні особистості</h1>
+    <input type="text" id="search" placeholder="Пошук за країною або ім’ям..." onkeyup="filterSections()">
+
+    <div>
+        <div class="section" data-country="Україна">
+            <h2>🇺🇦 Україна</h2>
+            <p><b>Тарас Шевченко</b> — поет, художник.</p>
+            <p><b>Леся Українка</b> — поетеса.</p>
+            <p><b>Сергій Корольов</b> — конструктор ракет.</p>
+        </div>
+
+        <div class="section" data-country="Німеччина">
+            <h2>🇩🇪 Німеччина</h2>
+            <p><b>Альберт Ейнштейн</b> — фізик.</p>
+            <p><b>Йоганн Себастьян Бах</b> — композитор.</p>
+            <p><b>Отто фон Бісмарк</b> — канцлер.</p>
+        </div>
+
+        <div class="section" data-country="Франція">
+            <h2>🇫🇷 Франція</h2>
+            <p><b>Наполеон Бонапарт</b> — імператор.</p>
+            <p><b>Вольтер</b> — філософ.</p>
+            <p><b>Марі Кюрі</b> — науковиця.</p>
+        </div>
+    </div>
+
+    <script>
+        function filterSections() {
+            let query = document.getElementById("search").value.toLowerCase();
+            let sections = document.getElementsByClassName("section");
+
+            for (let section of sections) {
+                let country = section.getAttribute("data-country").toLowerCase();
+                let people = section.innerText.toLowerCase();
+
+                if (country.includes(query) || people.includes(query)) {
+                    section.classList.remove("hidden");
+                } else {
+                    section.classList.add("hidden");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
